@@ -4,7 +4,7 @@ try:
 	assert len(sys.argv) == 2
 except AssertionError:
 	print("AssertionError: more than one argument is provided")
-	exit(0)
+	exit(1)
 
 nbr = str()
 if ((sys.argv[1])[0] == '-'):
@@ -18,7 +18,7 @@ try:
 	assert (nbr.isnumeric() == True)
 except AssertionError:
 	print("AssertionError: argument is not an integer")
-	exit(0)
+	exit(1)
 
 nbr = int(nbr)
 
