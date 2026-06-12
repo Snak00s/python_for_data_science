@@ -1,18 +1,15 @@
 from PIL import Image as img
+import numpy as np
 
 
-def ft_load(path: str) -> list:
+def ft_load(path: str) -> np.array:
     try:
         file = img.open(path)
     except IOError:
         print("Invalid image")
-        return []
+        return [[]]
 
-    ret = []
-    for x in range(file.width):
-        for y in range(file.height):
-            ret.append(list(file.getpixel([x, y])))
-    print(f"The shape of image is: ({file.height}, {
-        file.width}, {len(ret[0])})")
-    file.close()
-    return ret
+    file_arr = np.array(file)
+    print("The shape of image is:", np.shape(file_arr))
+    print(file_arr)
+    return file_arr

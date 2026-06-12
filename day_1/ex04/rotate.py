@@ -33,7 +33,7 @@ def zoom_img(img_arr: np.array,
     return img_arr[y_start:y_end, x_start:x_end]
 
 
-def zoom(img_arr: np.array) -> bool:
+def zoom(img_arr: np.array) -> np.array:
     img_arr = slice_img(img_arr)
     if (type(img_arr).__name__ == "NoneType"):
         return False
@@ -41,11 +41,21 @@ def zoom(img_arr: np.array) -> bool:
     if (type(img_arr).__name__ == "NoneType"):
         return False
     img_sh = np.shape(img_arr)
-    print(f"New shape after slicing: {img_sh} or ({img_sh[0]}, {img_sh[1]})")
+    print(f"The shape of image is: {img_sh} or ({img_sh[0]}, {img_sh[1]})")
     print(img_arr)
-    plt.imshow(img_arr, cmap='gray')
+    return img_arr
+
+
+def transpose(img_arr: np.array):
+    img_arr = img_arr[:, :, 0]
+    img_sh = np.shape(img_arr)
+    img_arr_t = np.array([np.array([int(x[y]) for x in img_arr])
+                          for y in range(img_sh[1])])
+    print("New shape after Transpose: ", np.shape(img_arr_t))
+    print(img_arr_t)
+    plt.imshow(img_arr_t, cmap="gray")
     plt.show()
-    return True
+    return
 
 
 def main():
@@ -55,9 +65,9 @@ def main():
         print("Need exactly 1 argument")
         exit(1)
     img_arr = ft_load(sys.argv[1])
-    if (zoom(img_arr) is not True):
-        print("Error while trying to zoom")
-        exit(1)
+    img_arr = zoom(img_arr)
+    transpose(img_arr)
+
     return
 
 

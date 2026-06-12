@@ -10,6 +10,4 @@ def ft_load(path: str) -> np.array:
         return [[]]
 
     file_arr = np.array(file)
-    print("The shape of image is:", np.shape(file_arr))
-    print(file_arr)
     return file_arr
