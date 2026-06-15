@@ -34,6 +34,9 @@ def zoom_img(img_arr: np.array,
 
 
 def zoom(img_arr: np.array) -> bool:
+    """
+    Zoom inside the image by selecting idx with x_start, ... y_end
+    """
     img_arr = slice_img(img_arr)
     if (type(img_arr).__name__ == "NoneType"):
         return False

@@ -34,6 +34,9 @@ def zoom_img(img_arr: np.array,
 
 
 def zoom(img_arr: np.array) -> np.array:
+    """
+    Zoom inside the image by selecting idx with x_start, ... y_end
+    """
     img_arr = slice_img(img_arr)
     if (type(img_arr).__name__ == "NoneType"):
         return False
@@ -47,6 +50,9 @@ def zoom(img_arr: np.array) -> np.array:
 
 
 def transpose(img_arr: np.array):
+    """
+    Transpose the array
+    """
     img_arr = img_arr[:, :, 0]
     img_sh = np.shape(img_arr)
     img_arr_t = np.array([np.array([int(x[y]) for x in img_arr])

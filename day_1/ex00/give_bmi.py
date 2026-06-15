@@ -3,6 +3,9 @@ import numpy as np
 
 def give_bmi(height: list[int | float],
              weight: list[int | float]) -> list[int | float]:
+    """
+    Calculate BMI for the given arrays and return the result
+    """
 
     try:
         assert (type(height).__name__ == "list") \
@@ -27,6 +30,9 @@ def give_bmi(height: list[int | float],
 
 
 def apply_limit(bmi: list[int | float], limit: int) -> list[bool]:
+    """
+    Check BMI limit
+    """
     try:
         assert (type(bmi).__name__ == "list") \
             and (type(limit).__name__ == "int")
