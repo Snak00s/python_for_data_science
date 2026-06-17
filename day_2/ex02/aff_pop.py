@@ -2,10 +2,11 @@ import matplotlib.pyplot as plt
 import pandas as pd
 from load_csv import load
 
+
 def convert_unit(cell: pd.Series) -> pd.Series:
     """
-    Convert pd.Series of string into ps.Series of int for string formated as xxx.xxxK :
-    consider 'x' as digit and 'K' as metric unit like M for millions, k for thoushand
+    Convert string pd.Series into int pd.Series for string formated as x.xK :
+    'x' as digit and 'K' as metric unit like M for millions, k for thoushand
     """
     ret = []
     for country_pop in cell:
@@ -27,10 +28,11 @@ def convert_unit(cell: pd.Series) -> pd.Series:
 
     return pd.Series(ret, index=cell.index)
 
+
 def main():
 
     df = load("population_total.csv")
-    if (type(df) == type(None)):
+    if (type(df) is type(None)):
         exit(1)
     fr_idx = df.index[df['country'] == "France"].to_list()
     if (len(fr_idx) != 1):
@@ -47,7 +49,8 @@ def main():
     pop = pop.set_index('country').transpose()
     pop = pop[pop.index.astype(int) <= 2050]
     pop = pop.apply(convert_unit, axis=1)
-    pop.plot(ylabel="Population", xlabel="Year", title="Population Projections")
+    pop.plot(ylabel="Population", xlabel="Year",
+             title="Population Projections")
     plt.show()
     return
 

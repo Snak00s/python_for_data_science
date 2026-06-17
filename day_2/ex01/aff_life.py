@@ -1,11 +1,10 @@
 import matplotlib.pyplot as plt
-import pandas as pd
 from load_csv import load
 
 
 def main():
     df = load("life_expectancy_years.csv")
-    if (type(df) == type(None)):
+    if (type(df) is type(None)):
         exit(1)
     idx = df.index[df['country'] == "France"].to_list()
     if (len(idx) != 1):
@@ -14,7 +13,9 @@ def main():
         return
     idx = idx[0]
     france = df.loc[idx][1:].astype(float)
-    france.plot(x="country", xlabel="Year", ylabel="Life expectancy", title="France Life expectancy Projection")
+    france.plot(x="country", xlabel="Year",
+                ylabel="Life expectancy",
+                title="France Life expectancy Projection")
     plt.show()
     return
 

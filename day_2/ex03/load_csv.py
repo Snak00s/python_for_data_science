@@ -12,4 +12,3 @@ def load(path: str) -> pd.DataFrame:
         return
     print(csv)
     return csv
-
