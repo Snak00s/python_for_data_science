@@ -5,6 +5,7 @@ class Character(ABC):
     """Character abstract class"""
     @abstractmethod
     def __init__(self, first_name: str, alive=True):
+        """Init Character"""
         self.first_name = first_name
         self.is_alive = alive
         return

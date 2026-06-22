@@ -2,6 +2,7 @@ import pandas as pd
 
 
 def load(path: str) -> pd.DataFrame:
+    """Load a csv into a DataFrame"""
     try:
         csv = pd.read_csv(path)
     except FileNotFoundError:
