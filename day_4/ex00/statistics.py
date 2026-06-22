@@ -1,5 +1,3 @@
-import numpy as np
-
 def mean(nbr_list: list, display=False) -> float:
     try:
         assert len(nbr_list) != 0
@@ -13,6 +11,7 @@ def mean(nbr_list: list, display=False) -> float:
     if display is True:
         print("mean :", ret)
     return ret
+
 
 def median(nbr_list: list, display=False) -> float:
     try:
@@ -32,6 +31,7 @@ def median(nbr_list: list, display=False) -> float:
         print("median :", med)
     return med
 
+
 def quartile(nbr_list: list, display=False) -> list:
     try:
         assert len(nbr_list) != 0
@@ -45,6 +45,7 @@ def quartile(nbr_list: list, display=False) -> list:
     if display is True:
         print("quartile :", [q1, q2])
     return [q1, q2]
+
 
 def std(nbr_list: list, display=False) -> float:
     try:
@@ -63,6 +64,7 @@ def std(nbr_list: list, display=False) -> float:
         print("std :", ret)
     return ret
 
+
 def variance(nbr_list: list, display=False) -> float:
     try:
         assert len(nbr_list) != 0
@@ -78,7 +80,6 @@ def variance(nbr_list: list, display=False) -> float:
     if display is True:
         print("var :", ret)
     return ret
-
 
 
 def ft_statistics(*args: any, **kwargs: any) -> None:
@@ -102,11 +103,3 @@ def ft_statistics(*args: any, **kwargs: any) -> None:
             case 'var':
                 variance(nbr_list, True)
     return
-
-ft_statistics(1, 42, 360, 11, 64, toto="mean", tutu="median", tata="quartile")
-print("-----")
-ft_statistics(5, 75, 450, 18, 597, 27474, 48575, hello="std", world="var")
-print("-----")
-ft_statistics(5, 75, 450, 18, 597, 27474, 48575, ejfhhe="heheh", ejdjdejn="kdekem")
-print("-----")
-ft_statistics(toto="mean", tutu="median", tata="quartile")

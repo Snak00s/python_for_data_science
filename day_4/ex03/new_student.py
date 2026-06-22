@@ -9,6 +9,7 @@ def generate_id() -> str:
 
 @dataclass
 class Student:
+    """Student class"""
     name: str
     surname: str
     active: bool = field(init=False)
@@ -16,6 +17,7 @@ class Student:
     id: str = field(init=False)
 
     def __post_init__(self):
+        """Init student var that should not be init directly by the user."""
         self.login = "" + self.name[0:1] + self.surname
         self.active = True
         self.id = generate_id()
